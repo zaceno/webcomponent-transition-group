@@ -43,6 +43,18 @@ class TransitionGroup extends HTMLElement {
       this.#handleSlotChange()
     })
     this.shadowRoot.append(slot)
+    window.addEventListener("resize", () => {
+      this.#handleLayoutChange()
+    })
+    window.addEventListener("scroll", () => {
+      this.#handleLayoutChange()
+    })
+  }
+
+  #handleLayoutChange() {
+    this.#previous.forEach(elem => {
+      elem._tx_rect = elem.getBoundingClientRect()
+    })
   }
 
   #handleSlotChange() {
@@ -99,4 +111,4 @@ class TransitionGroup extends HTMLElement {
   }
 }
 customElements.define("transition-group", TransitionGroup)
-export default {}
+export {}
