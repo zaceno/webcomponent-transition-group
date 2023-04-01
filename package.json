@@ -1,0 +1,13 @@
+{
+  "name": "webcomponent-transition-group",
+  "version": "0.0.1",
+  "description": "A web component to use css transitions for smoot entry, exit and layout changes",
+  "main": "index.js",
+  "keywords": [
+    "transitions",
+    "web-components"
+  ],
+  "author": "Zacharias Enochsson",
+  "license": "MIT",
+  "type": "module"
+}
