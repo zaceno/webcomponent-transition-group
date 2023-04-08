@@ -1,5 +1,7 @@
 # A Transition-Group Web Component
 
+NEW: more in depth docs and interactive examples here: https://zaceno.github.io/webcomponent-transition-group
+
 Using css transitions to manage elegant and smooth appearances and dissapearances
 of elements on ones pages can be difficult. In particular when using virtual-dom based
 frameworks, as they expect full control of the DOM, so one needs to keep track of the
