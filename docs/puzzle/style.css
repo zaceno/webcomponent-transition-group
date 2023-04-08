@@ -1,0 +1,77 @@
+.puzzle__square {
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  background: radial-gradient(circle, #ccc, #ccc 40%, #888 66%, #333 80%),
+    rgb(78, 201, 249);
+  background-blend-mode: screen;
+  border-radius: 15%;
+  border: 1px rgb(81, 182, 223) solid;
+  font-size: 24px;
+  text-align: center;
+  line-height: 65px;
+  font-family: monospace;
+  color: rgb(197, 84, 20);
+  text-shadow: 0 -2px 0 #ffffff;
+}
+
+.puzzle__square--movable {
+  cursor: pointer;
+}
+
+.puzzle__blank {
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+}
+
+.puzzle__board {
+  width: 240px;
+  height: 240px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: repeating-linear-gradient(-45deg, #111, #444 6px),
+    repeating-linear-gradient(45deg, #111, #444 6px);
+  background-blend-mode: exclusion;
+  box-shadow: 0 0 15px #ffffff66;
+  border: 1px #000 solid;
+}
+
+.puzzle__board--slide {
+  transition: 0.2s;
+}
+
+.puzzle__shuffle {
+  box-sizing: border-box;
+  height: 3rem;
+  width: 3rem;
+  overflow: hidden;
+  font-size: 2rem;
+  line-height: 1rem;
+  border-radius: 1.5rem;
+  border: 1px white solid;
+  padding: 0.4rem;
+  background: rgb(255, 189, 203);
+  cursor: pointer;
+  position: relative;
+  left: calc(50% - 1.5rem);
+  top: 0.8rem;
+}
+.puzzle__shuffle:active {
+  background: rgb(255, 208, 218);
+}
+
+.puzzle {
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: rgb(106, 0, 95);
+  width: 285px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px #ffffff33 inset;
+  border: 2px #000 solid;
+}

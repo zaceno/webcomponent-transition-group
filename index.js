@@ -1,3 +1,5 @@
+//TODO: debounce handling resize/scroll events
+
 const doTransition = (elem, trigger, after) => {
   let n = 0
   let starthandler = () => n++

@@ -1,0 +1,69 @@
+@import url("./slideshow/style.css");
+@import url("./puzzle/style.css");
+@import url("./list/style.css");
+@import url("./curtain/style.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400");
+
+body {
+  background-color: rgb(41, 41, 41);
+}
+
+h1,
+h2,
+p,
+code,
+em,
+button,
+button * {
+  color: #fff;
+}
+body > header {
+  background: linear-gradient(to bottom right, purple, blue),
+    linear-gradient(to top, orange, transparent);
+  background-blend-mode: multiply;
+  overflow: hidden;
+  max-height: 350px;
+}
+body > header h1 {
+  position: relative;
+  top: -20px;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  transform-origin: 10% 50%;
+  transform: rotate(-10deg);
+}
+
+#top-github-link {
+  z-index: 100;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#top-github-link img {
+  width: 48px;
+}
+code,
+code * {
+  font-family: "Roboto Mono", monospace;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+section {
+  margin-top: 96px;
+}
+
+footer {
+  background: #344;
+  margin: 0;
+  text-align: center;
+  padding: 20px;
+}
+
+footer .github-icon {
+  width: 48px;
+}

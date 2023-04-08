@@ -1,0 +1,82 @@
+.banner {
+  position: relative;
+  border-radius: 40px;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.banner--one {
+  background: linear-gradient(rgb(254, 0, 0), transparent),
+    linear-gradient(to top left, rgb(0, 255, 0), transparent),
+    linear-gradient(to top right, rgb(0, 58, 255), transparent);
+  background-blend-mode: screen;
+}
+
+.banner--two {
+  background: linear-gradient(-120deg, #000, #fff),
+    linear-gradient(rgb(153, 14, 153), rgb(234, 164, 178));
+  background-blend-mode: screen;
+  background-size: 100% 100%, 100% 20%;
+  background-position: 0 0, 0 4%;
+}
+
+.banner--three {
+  background: repeating-radial-gradient(circle at bottom center, #409, #306 20%),
+    radial-gradient(
+      circle at 25% 50%,
+      transparent,
+      transparent 30%,
+      #ffffff22 30%,
+      #ffffff22 31%,
+      transparent 31%,
+      transparent
+    );
+  background-blend-mode: screen;
+}
+
+.banner--four {
+  background: linear-gradient(rgb(206, 125, 0), rgb(0, 119, 0)),
+    repeating-radial-gradient(circle at 70% 50%, #aaa, #777 5%),
+    repeating-radial-gradient(circle at 30% 50%, #aaa, #777 5%);
+  background-blend-mode: color, screen;
+}
+
+.banner h1 {
+  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: verdana, sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 64px;
+  position: absolute;
+  border-right: 1px white solid;
+  height: 140px;
+  width: 220px;
+  left: 36px;
+  top: 64px;
+  padding: 10px;
+  text-align: right;
+  text-shadow: 0 0 10px #00000055;
+}
+.banner p {
+  color: white;
+  box-sizing: border-box;
+  font-family: verdana, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  box-sizing: border-box;
+  position: absolute;
+  background: #00000044;
+  width: 280px;
+  height: 140px;
+  padding: 10px;
+  top: 45px;
+  left: 257px;
+  padding-top: 28px;
+}

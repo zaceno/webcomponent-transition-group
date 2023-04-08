@@ -1,0 +1,45 @@
+.curtain {
+  border-top: 1px #fff solid;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.curtain__container {
+  margin: 0;
+  padding: 0;
+  transition: 0.5s;
+}
+.curtain__container.curtain__container--hidden {
+  transform: translateY(calc(-100% + 2rem - 1px));
+}
+.curtain__content {
+  background: linear-gradient(to bottom, rgb(96, 156, 254), rgb(52, 128, 252));
+  margin: 0;
+  padding: 1rem;
+  border-top: none;
+}
+.curtain__toggle {
+  height: 2rem;
+  width: 3rem;
+  color: #fff;
+  font-size: 1.1rem;
+  background: rgb(52, 128, 252);
+  border: none;
+  border-top: none;
+  border-bottom-left-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
+  position: relative;
+  left: 1rem;
+  top: -3px;
+  cursor: pointer;
+}
+.curtain__toggle-icon {
+  display: inline-block;
+  transition: 0.5s;
+  transform: rotate(-180deg);
+}
+.curtain__container--hidden .curtain__toggle-icon {
+  transform: rotate(0deg);
+}
