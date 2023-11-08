@@ -1,5 +1,3 @@
-//TODO: debounce handling resize/scroll events
-
 const doTransition = (elem, trigger, after) => {
   let n = 0
   let starthandler = () => n++
@@ -26,19 +24,21 @@ const offset = elem => {
   return true
 }
 
-class TransitionGroup extends HTMLElement {
+const _HTMLElement = typeof HTMLElement === "undefined" ? Object : HTMLElement
+
+class TransitionGroup extends _HTMLElement {
   #previous = []
 
   constructor() {
     super()
     this.attachShadow({ mode: "open" })
     this.shadowRoot.append(
-      ...[...document.querySelectorAll("style")].map(n => n.cloneNode(true))
+      ...[...document.querySelectorAll("style")].map(n => n.cloneNode(true)),
     )
     this.shadowRoot.append(
       ...[...document.querySelectorAll("link[rel=stylesheet]")].map(n =>
-        n.cloneNode()
-      )
+        n.cloneNode(),
+      ),
     )
     let slot = document.createElement("slot")
     slot.addEventListener("slotchange", () => {
@@ -79,7 +79,7 @@ class TransitionGroup extends HTMLElement {
     doTransition(
       elem,
       () => elem.classList.replace(clsentryPre, clsentry),
-      () => elem.classList.remove(clsentry)
+      () => elem.classList.remove(clsentry),
     )
   }
 
@@ -96,7 +96,7 @@ class TransitionGroup extends HTMLElement {
         elem.classList.add(clsslide)
         elem.style.translate = null
       },
-      () => elem.classList.remove(clsslide)
+      () => elem.classList.remove(clsslide),
     )
   }
 
@@ -108,9 +108,13 @@ class TransitionGroup extends HTMLElement {
     doTransition(
       elem,
       () => elem.classList.add(clsremove),
-      () => elem.parentNode && this.shadowRoot.removeChild(elem)
+      () => elem.parentNode && this.shadowRoot.removeChild(elem),
     )
   }
 }
-customElements.define("transition-group", TransitionGroup)
+
+if (typeof customElements !== "undefined") {
+  customElements.define("transition-group", TransitionGroup)
+}
+
 export {}
