@@ -27,10 +27,9 @@ const offset = elem => {
 const _HTMLElement = typeof HTMLElement === "undefined" ? Object : HTMLElement
 
 class TransitionGroup extends _HTMLElement {
-  _previous = []
-
   constructor() {
     super()
+    this._previous = []
     this.attachShadow({ mode: "open" })
     this.shadowRoot.append(
       ...[...document.querySelectorAll("style")].map(n => n.cloneNode(true)),
