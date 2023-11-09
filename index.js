@@ -27,7 +27,7 @@ const offset = elem => {
 const _HTMLElement = typeof HTMLElement === "undefined" ? Object : HTMLElement
 
 class TransitionGroup extends _HTMLElement {
-  #previous = []
+  _previous = []
 
   constructor() {
     super()
@@ -42,35 +42,35 @@ class TransitionGroup extends _HTMLElement {
     )
     let slot = document.createElement("slot")
     slot.addEventListener("slotchange", () => {
-      this.#handleSlotChange()
+      this._handleSlotChange()
     })
     this.shadowRoot.append(slot)
     window.addEventListener("resize", () => {
-      this.#handleLayoutChange()
+      this._handleLayoutChange()
     })
     window.addEventListener("scroll", () => {
-      this.#handleLayoutChange()
+      this._handleLayoutChange()
     })
   }
 
-  #handleLayoutChange() {
-    this.#previous.forEach(elem => {
+  _handleLayoutChange() {
+    this._previous.forEach(elem => {
       elem._tx_rect = elem.getBoundingClientRect()
     })
   }
 
-  #handleSlotChange() {
+  _handleSlotChange() {
     let current = [...this.childNodes]
-    let added = current.filter(node => !this.#previous.includes(node))
-    let removed = this.#previous.filter(node => !current.includes(node))
+    let added = current.filter(node => !this._previous.includes(node))
+    let removed = this._previous.filter(node => !current.includes(node))
     let updated = current.filter(node => !added.includes(node))
-    added.forEach(elem => this.#onadd(elem))
-    updated.forEach(elem => this.#onupdate(elem))
-    removed.forEach(elem => this.#onremove(elem))
-    this.#previous = current
+    added.forEach(elem => this._onadd(elem))
+    updated.forEach(elem => this._onupdate(elem))
+    removed.forEach(elem => this._onremove(elem))
+    this._previous = current
   }
 
-  #onadd(elem) {
+  _onadd(elem) {
     elem._tx_rect = elem.getBoundingClientRect()
     let clsentry = this.getAttribute("entry")
     if (!clsentry) return
@@ -83,7 +83,7 @@ class TransitionGroup extends _HTMLElement {
     )
   }
 
-  #onupdate(elem) {
+  _onupdate(elem) {
     let clsslide = this.getAttribute("slide")
     if (!clsslide) {
       elem._tx_rect = elem.getBoundingClientRect()
@@ -100,7 +100,7 @@ class TransitionGroup extends _HTMLElement {
     )
   }
 
-  #onremove(elem) {
+  _onremove(elem) {
     let clsremove = this.getAttribute("exit")
     if (!clsremove) return
     this.shadowRoot.append(elem)
