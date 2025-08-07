@@ -27,6 +27,29 @@ const offset = elem => {
 const _HTMLElement = typeof HTMLElement === "undefined" ? Object : HTMLElement
 
 class TransitionGroup extends _HTMLElement {
+  _eventListeners = []
+
+  _bindEventListener(elem, event, handler) {
+    elem.addEventListener(event, handler)
+    this._eventListeners.push([elem, event, handler])
+  }
+
+  connectedCallback() {
+    const handler = this._handleLayoutChange.bind(this)
+    this._bindEventListener(window, "resize", handler)
+    let parent = this
+    while (parent.parentNode) {
+      parent = parent.parentNode
+      this._bindEventListener(parent, "scroll", handler)
+    }
+  }
+
+  disconnectedCallback() {
+    for (let [elem, event, handler] of this._eventListeners) {
+      elem.removeEventListener(event, handler)
+    }
+  }
+
   constructor() {
     super()
     this._previous = []
@@ -44,12 +67,6 @@ class TransitionGroup extends _HTMLElement {
       this._handleSlotChange()
     })
     this.shadowRoot.append(slot)
-    window.addEventListener("resize", () => {
-      this._handleLayoutChange()
-    })
-    window.addEventListener("scroll", () => {
-      this._handleLayoutChange()
-    })
   }
 
   _handleLayoutChange() {
